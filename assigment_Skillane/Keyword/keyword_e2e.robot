@@ -12,16 +12,25 @@ ${Hand_Bag}    (//div[@class="card"]//button)[3]
 *** Keywords ***
 Open QA Hive Web Browser
     Open Browser    ${URL}    ${BROWSER}
-
-Input Email for Login
+Input field Email
     [Arguments]    ${Email}
     Input Text    data:testid:email    ${Email}
-
-Input Password for Login
+Input field Password
     [Arguments]    ${Password}
     Input Text    data:testid:password    ${Password}
+Input field Name from Register Page
+    [Arguments]    ${Name_register_page}
+    Input Text    data:testid:name    ${Name_register_page}
+
+Select Gender
+    [Arguments]    ${gender}
+    Select Radio Button    gender    ${gender}
+
+Click Register button for register
+    Click Element    data:testid:loginLink
+    Wait Until Page Contains Element    data:testid:name
     
-Click submit button for Login
+Click Submit button
     Click Element    data:testid:submit
     Wait Until Page Contains Element    ${Apple_Watch}
 
